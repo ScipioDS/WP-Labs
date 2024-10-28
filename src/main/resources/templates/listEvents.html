@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>Event Booking page - Welcome and choose an Event</title>
+    <style type="text/css">
+        body {
+            width: 800px;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>Welcome to our Event Booking App</h1>
+</header>
+<main>
+<div>
+    <form th:action="@{/}" th:method="POST">
+        <div th:each="event : ${events}">
+            <input type="radio" th:value="${event.getName()}" name="group"/>
+            <label th:text="'Name: ' + ${event.getName()} + ', Description: ' + ${event.getDescription()} + ' Rating: ' + ${event.getPopularityScore()}">Event</label>
+        </div>
+        <h2>Choose number of tickets:</h2>
+        <input type="number" name="numTickets" min="1" max="10"><br/>
+        <br/>
+        <input type="submit" value="Submit" name="bookbool">
+    </form>
+</div>
+<hr>
+<div>
+    <form th:action="@{/}" th:method="POST">
+        <input type="search" name="search">
+        <input type="submit" value="Search">
+    </form>
+</div>
+
+</main>
+</body>
+</html>
