@@ -20,7 +20,7 @@ public class EventBookingController {
     }
     @PostMapping("/finalize")
     public String bookEvent(@RequestParam(required = false) String error,
-                            @RequestParam("group") String selectedEvent, // Extract selected radio button
+                            @RequestParam("chosen_event") String selectedEvent, // Extract selected radio button
                             @RequestParam("numTickets") int numTickets, // Extract number of tickets
                             @RequestParam("bookbool") String bookbool, // Confirm booking action,
                             Model model
@@ -29,6 +29,7 @@ public class EventBookingController {
             model.addAttribute("hasError", true);
             model.addAttribute("error", error);
         }
+
         eventBookingService.placeBooking(selectedEvent, "David", "K1", numTickets);
         model.addAttribute("booking", eventBookingService.getBooking());
         return "bookingConfirmation";
