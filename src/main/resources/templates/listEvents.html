@@ -17,10 +17,21 @@
 </header>
 <main>
 <div>
-    <form th:action="@{/}" th:method="POST">
+    <form th:action="@{'/bookings/finalize'}" th:method="POST">
         <div th:each="event : ${events}">
             <input type="radio" th:value="${event.getName()}" name="group"/>
             <label th:text="'Name: ' + ${event.getName()} + ', Description: ' + ${event.getDescription()} + ' Rating: ' + ${event.getPopularityScore()}">Event</label>
+            <br>
+            <div>
+                <form th:action="@{'/events/delete/{id}' (id=${event.getId()})}"
+                      th:method="DELETE">
+                    <input type="submit" value="Delete" name="Delete">
+                </form>
+                <a th:href="@{'/events/edit-form/{id}' (id=${event.getId()})}"
+                   class="btn btn-sm btn-info edit-product">
+                    <i>Edit</i>
+                </a>
+            </div>
         </div>
         <h2>Choose number of tickets:</h2>
         <input type="number" name="numTickets" min="1" max="10"><br/>
@@ -30,12 +41,14 @@
 </div>
 <hr>
 <div>
-    <form th:action="@{/}" th:method="POST">
+    <form th:action="@{'/events/search'}" th:method="POST">
         <input type="search" name="search">
         <input type="submit" value="Search">
     </form>
 </div>
-
+<div>
+    <a href="/events/add-form" th:method="POST">Add event</a>
+</div>
 </main>
 </body>
 </html>

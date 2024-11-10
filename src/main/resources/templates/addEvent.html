@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Event</title>
+</head>
+<body>
+    <form action="/events/add" method="post">
+        <label for="name">Event name</label>
+        <input type="text"
+               id="name"
+               name="name"
+               required
+               placeholder="Enter event name">
+        <br>
+        <label for="score">Event name</label>
+        <input type="text"
+               id="score"
+               name="score"
+               required
+               placeholder="Enter event score">
+        <br>
+        <label for="description">Event name</label>
+        <input type="text"
+               id="description"
+               name="description"
+               required
+               placeholder="Enter event description">
+        <br>
+        <label>Location</label>
+        <select name="location">
+            <option th:each="location : ${locations}"
+                    th:value="${location.getId()}"
+                    th:text="${location.getName()}">
+            </option>
+        </select>
+        <br>
+        <input type="submit" value="Submit" name="Submit">
+    </form>
+</body>
+</html>
