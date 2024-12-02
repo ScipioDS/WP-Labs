@@ -1,7 +1,6 @@
 package mk.finki.ukim.mk.lab.service;
 
 import mk.finki.ukim.mk.lab.model.Event;
-import mk.finki.ukim.mk.lab.repository.LocationRepository;
 
 import java.util.List;
 import java.util.Optional;

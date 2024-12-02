@@ -1,16 +1,16 @@
 package mk.finki.ukim.mk.lab.service.impl;
 
 import mk.finki.ukim.mk.lab.model.EventBooking;
-import mk.finki.ukim.mk.lab.repository.EventBookingRepository;
-import mk.finki.ukim.mk.lab.repository.EventRepository;
+import mk.finki.ukim.mk.lab.repository.inmemory.InMemoryEventBookingRepository;
+import mk.finki.ukim.mk.lab.repository.inmemory.InMemoryEventRepository;
 import mk.finki.ukim.mk.lab.service.EventBookingService;
 import org.springframework.stereotype.Service;
 
 @Service
 public class EventBookingServiceImpl implements EventBookingService {
-    private final EventRepository eventRepository;
-    private final EventBookingRepository eventBookingRepository;
-    public EventBookingServiceImpl(EventRepository eventRepository, EventBookingRepository eventBookingRepository){
+    private final InMemoryEventRepository eventRepository;
+    private final InMemoryEventBookingRepository eventBookingRepository;
+    public EventBookingServiceImpl(InMemoryEventRepository eventRepository, InMemoryEventBookingRepository eventBookingRepository){
         this.eventRepository = eventRepository;
         this.eventBookingRepository = eventBookingRepository;
     }

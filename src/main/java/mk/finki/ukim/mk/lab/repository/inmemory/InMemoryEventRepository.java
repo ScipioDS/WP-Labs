@@ -1,8 +1,7 @@
-package mk.finki.ukim.mk.lab.repository;
+package mk.finki.ukim.mk.lab.repository.inmemory;
 
 import mk.finki.ukim.mk.lab.bootstrap.DataHolder;
 import mk.finki.ukim.mk.lab.model.Event;
-import mk.finki.ukim.mk.lab.model.EventBooking;
 import mk.finki.ukim.mk.lab.model.Location;
 import org.springframework.stereotype.Repository;
 
@@ -10,7 +9,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public class EventRepository {
+public class InMemoryEventRepository {
     public List<Event> findAll(){
         return DataHolder.events;
     }
