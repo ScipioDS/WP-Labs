@@ -6,6 +6,8 @@
 </head>
 <body>
     <form action="/events/add" method="post">
+        <input id="id" type="hidden" name="id"
+               th:value="(${event} != null ? ${event.getId()} : '')">
         <label for="name">Event name</label>
         <input type="text"
                id="name"

@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 @RequestMapping("/events")
@@ -72,11 +73,18 @@ public class EventController {
     }
 
     @PostMapping("/add")
-    public String saveProduct(@RequestParam String name,
+    public String saveProduct(@RequestParam(required = false) Long id,
+                              @RequestParam String name,
                               @RequestParam String score,
                               @RequestParam String description,
                               @RequestParam Long location){
         this.eventService.save(name, score, description, location);
+//        if (id != null) {
+//            this.eventService.editById(id,name,description,score,location);
+//        } else {
+//            this.eventService.save(name, score, description, location);
+//        }
+
         return "redirect:/events";
     }
 
