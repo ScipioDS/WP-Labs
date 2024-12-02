@@ -16,13 +16,16 @@ public class Event {
 
     @ManyToOne
     private Location location;
+    @ManyToOne
+    private Category category;
 
-    public Event(String name, String description, Double popularityScore, Location location){
+    public Event(String name, String description, Double popularityScore, Location location, Category category){
         this.id = (long) (Math.random() * 1000);
         this.name = name;
         this.description = description;
         this.popularityScore = popularityScore;
         this.location = location;
+        this.category = category;
     }
 
 }

@@ -15,14 +15,14 @@
                required
                placeholder="Enter event name">
         <br>
-        <label for="score">Event name</label>
+        <label for="score">Event score</label>
         <input type="text"
                id="score"
                name="score"
                required
                placeholder="Enter event score">
         <br>
-        <label for="description">Event name</label>
+        <label for="description">Event desc</label>
         <input type="text"
                id="description"
                name="description"
@@ -34,6 +34,14 @@
             <option th:each="location : ${locations}"
                     th:value="${location.getId()}"
                     th:text="${location.getName()}">
+            </option>
+        </select>
+        <br>
+        <label>Category</label>
+        <select name="category">
+            <option th:each="category : ${categories}"
+                    th:value="${category.getId()}"
+                    th:text="${category.getName()}">
             </option>
         </select>
         <br>

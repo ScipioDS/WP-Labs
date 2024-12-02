@@ -19,6 +19,7 @@
 <div>
     <div th:each="event : ${events}">
         <label th:text="'Name: ' + ${event.getName()} + ', Description: ' + ${event.getDescription()} + ' Rating: ' + ${event.getPopularityScore()}">Event</label>
+        <label th:text="${event.getLocation().getName()} + ' ' + ${event.getCategory().getName()} "></label>
         <br>
         <div>
             <th:block>

@@ -23,17 +23,17 @@ public class DataHolder {
         locations.add(new Location("T-Mobile Centre", "TMC 1", "200000", "Sports Arena"));
         locations.add(new Location("Ploshtad", "Bez adresa 15", "1000000", "Square"));
 
-        events = new ArrayList<>();
-        events.add(new Event("Brucoshka@FEIT", "Student Party", 10.0, locations.get(0)));
-        events.add(new Event("Denovi na knigata", "Book Fair", 9.0, locations.get(1)));
-        events.add(new Event("Panair", "City Fair", 8.0, locations.get(4)));
-        events.add(new Event("Sean Paul Live", "Concert", 7.0, locations.get(1)));
-        events.add(new Event("The Big Steppers", "Tour", 6.0, locations.get(3)));
-        events.add(new Event("The Popout", "Concert", 5.0, locations.get(3)));
-        events.add(new Event("Denovi na medot", "Honey Fair", 4.0, locations.get(4)));
-        events.add(new Event("Pivolend", "Fair", 3.0, locations.get(4)));
-        events.add(new Event("Sureshots 20", "Party", 2.0, locations.get(2)));
-        events.add(new Event("Brucoshka@FINKI", "Student Party", 1.0, locations.get(2)));
+//        events = new ArrayList<>();
+//        events.add(new Event("Brucoshka@FEIT", "Student Party", 10.0, locations.get(0)));
+//        events.add(new Event("Denovi na knigata", "Book Fair", 9.0, locations.get(1)));
+//        events.add(new Event("Panair", "City Fair", 8.0, locations.get(4)));
+//        events.add(new Event("Sean Paul Live", "Concert", 7.0, locations.get(1)));
+//        events.add(new Event("The Big Steppers", "Tour", 6.0, locations.get(3)));
+//        events.add(new Event("The Popout", "Concert", 5.0, locations.get(3)));
+//        events.add(new Event("Denovi na medot", "Honey Fair", 4.0, locations.get(4)));
+//        events.add(new Event("Pivolend", "Fair", 3.0, locations.get(4)));
+//        events.add(new Event("Sureshots 20", "Party", 2.0, locations.get(2)));
+//        events.add(new Event("Brucoshka@FINKI", "Student Party", 1.0, locations.get(2)));
 
         booking = new EventBooking("Yes Event", "Yes", "Yes Street", (long) 10);
     }
