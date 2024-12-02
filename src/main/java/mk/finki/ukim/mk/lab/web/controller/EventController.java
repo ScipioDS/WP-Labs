@@ -78,12 +78,12 @@ public class EventController {
                               @RequestParam String score,
                               @RequestParam String description,
                               @RequestParam Long location){
-        this.eventService.save(name, score, description, location);
-//        if (id != null) {
-//            this.eventService.editById(id,name,description,score,location);
-//        } else {
-//            this.eventService.save(name, score, description, location);
-//        }
+        //this.eventService.save(name, score, description, location);
+        if (id != null) {
+            this.eventService.editById(id,name,Double.parseDouble(score),description,location);
+        } else {
+            this.eventService.save(name, score, description, location);
+        }
 
         return "redirect:/events";
     }

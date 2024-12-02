@@ -50,15 +50,17 @@ public class EventServiceImpl implements EventService {
     }
 
     @Override
-    public void editById(Long eventId, String name, String score, String description, Long locationId) {
+    public void editById(Long eventId, String name, Double score, String description, Long locationId) {
         Location location = locationRepository.findById(locationId).orElseThrow(() -> new LocationNotFoundException(locationId));
 
         List<Event> eventList = eventRepository.findAllById(eventId);
         Event tmp=eventList.get(0);
         tmp.setName(name);
-        tmp.setPopularityScore(Double.parseDouble(score));
+        tmp.setPopularityScore(score);
         tmp.setDescription(description);
         tmp.setLocation(location);
+
+        eventRepository.save(tmp);
     }
 
     @Override

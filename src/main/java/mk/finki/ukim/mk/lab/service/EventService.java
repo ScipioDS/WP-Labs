@@ -12,7 +12,7 @@ public interface EventService {
     Optional<Event> saveEvent(String name, String description, Double score, Long locationId);
     Optional<Event> findById(Long id);
 
-    void editById(Long eventId, String name, String score, String description, Long location);
+    void editById(Long eventId, String name, Double score, String description, Long location);
 
     void save(String name, String score, String description, Long location);
 }
