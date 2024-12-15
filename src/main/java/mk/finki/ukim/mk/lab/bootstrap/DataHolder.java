@@ -1,9 +1,14 @@
 package mk.finki.ukim.mk.lab.bootstrap;
 
 import jakarta.annotation.PostConstruct;
+import mk.finki.ukim.mk.lab.enumerations.Role;
 import mk.finki.ukim.mk.lab.model.Event;
 import mk.finki.ukim.mk.lab.model.EventBooking;
 import mk.finki.ukim.mk.lab.model.Location;
+import mk.finki.ukim.mk.lab.model.User;
+import mk.finki.ukim.mk.lab.repository.jpa.CategoryRepository;
+import mk.finki.ukim.mk.lab.repository.jpa.UserRepository;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -14,6 +19,16 @@ public class DataHolder {
     public static List<Event> events = null;
     public static EventBooking booking = null;
     public static List<Location> locations = null;
+    public static List<User> users = null;
+    private final UserRepository userRepository;
+
+    private final PasswordEncoder passwordEncoder;
+
+    public DataHolder(UserRepository userRepository, PasswordEncoder passwordEncoder) {
+        this.userRepository = userRepository;
+        this.passwordEncoder = passwordEncoder;
+    }
+
     @PostConstruct
     public void init(){
         locations = new ArrayList<>();
@@ -36,5 +51,15 @@ public class DataHolder {
 //        events.add(new Event("Brucoshka@FINKI", "Student Party", 1.0, locations.get(2)));
 
         booking = new EventBooking("Yes Event", "Yes", "Yes Street", (long) 10);
+
+        users = new ArrayList<>();
+        if (this.userRepository.count() == 0) {
+            users.add(new User("elena.atanasoska", passwordEncoder.encode("ea"), "Elena", "Atanasoska", Role.ROLE_USER));
+            users.add(new User("darko.sasanski", passwordEncoder.encode("ds"), "Darko", "Sasanski", Role.ROLE_USER));
+            users.add(new User("ana.todorovska", passwordEncoder.encode("at"), "Ana", "Todorovska", Role.ROLE_USER));
+            users.add(new User("admin", passwordEncoder.encode("admin"), "admin", "admin", Role.ROLE_ADMIN));
+            this.userRepository.saveAll(users);
+        }
+
     }
 }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+<html lang="en" xmlns:sec="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8">
@@ -22,14 +22,16 @@
         <label th:text="${event.getLocation().getName()} + ' ' + ${event.getCategory().getName()} "></label>
         <br>
         <div>
-            <th:block>
+            <th:block sec:authorize="hasRole('ROLE_ADMIN')">
                 <form th:action="@{'/events/delete/' + ${event.getId()}}" method="POST">
                     <input type="submit" value="Delete" name="Delete">
                 </form>
             </th:block>
-            <a th:href="@{'/events/edit-form/' + ${event.getId()}}" class="btn btn-sm btn-info edit-product">
-                <i>Edit</i>
-            </a>
+            <th:block sec:authorize="hasRole('ROLE_ADMIN')">
+                <a th:href="@{'/events/edit-form/' + ${event.getId()}}" class="btn btn-sm btn-info edit-product">
+                    <i>Edit</i>
+                </a>
+            </th:block>
         </div>
         <br>
     </div>
